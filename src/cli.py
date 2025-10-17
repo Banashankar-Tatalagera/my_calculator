@@ -27,14 +27,12 @@ def calculate(operation, num1, num2=None):
             click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
 
+        click.echo(result)  
         return result
 
     except Exception as e:
         click.echo(f"Error: {e}")
         sys.exit(1)
-
-
-    
 
 
 if __name__ == "__main__":
