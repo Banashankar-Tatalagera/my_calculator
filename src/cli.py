@@ -27,11 +27,19 @@ def calculate(operation, num1, num2=None):
             click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
 
-        click.echo(result)  
+        # --- Fix #1: clean float formatting ---
+        if isinstance(result, float):
+            if result.is_integer():
+                result = int(result)
+            else:
+                result = round(result, 2)
+
+        click.echo(result)
         return result
 
     except Exception as e:
-        click.echo(f"Error: {e}")
+        
+        click.echo(f"Unexpected error: {e}")
         sys.exit(1)
 
 
