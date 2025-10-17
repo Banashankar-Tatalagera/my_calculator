@@ -12,7 +12,7 @@ class TestCLIIntegration:
 
     def run_cli(self, *args):
         """Helper method to run CLI and capture output"""
-        cmd = [sys.executable, "src/cli.py"] + list(args)
+        cmd = [sys.executable, "-m", "src.cli"] + list(args)
         return subprocess.run(cmd, capture_output=True, text=True, cwd=".")
 
     def test_cli_add_integration(self):
@@ -44,3 +44,4 @@ class TestCLIIntegration:
         result = self.run_cli("subtract", "5")
         assert result.returncode == 1
         assert result.stdout.strip().startswith("Unexpected error:")
+

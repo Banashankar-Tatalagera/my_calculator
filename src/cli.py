@@ -5,7 +5,7 @@ Example: python src/cli.py add 5 3
 
 import sys
 import click
-from calculator import add, subtract, multiply, divide, power, square_root
+from src.calculator import add, subtract, multiply, divide, power, square_root
 
 
 @click.command()
@@ -38,7 +38,7 @@ def calculate(operation, num1, num2=None):
         return result
 
     except Exception as e:
-        
+
         click.echo(f"Unexpected error: {e}")
         sys.exit(1)
 
